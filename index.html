@@ -20,25 +20,31 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
 
-    /* ── ADMIN BAR ── */
-    .admin-bar {
-      display: none; background: var(--ink); color: white;
-      padding: .5rem 1.2rem; align-items: center; justify-content: space-between; gap: 1rem;
+    /* SYNC STATUS */
+    .sync-bar {
+      background: #1a1a2e; color: white;
+      padding: .35rem 1rem; font-size: .75rem;
+      display: flex; align-items: center; gap: .5rem;
+      justify-content: center;
     }
+    .sync-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #aaa; display: inline-block;
+      transition: background .3s;
+    }
+    .sync-dot.online { background: #2ecc71; }
+    .sync-dot.offline { background: #e74c3c; }
+
+    /* ADMIN BAR */
+    .admin-bar { display: none; background: var(--ink); color: white; padding: .5rem 1.2rem; align-items: center; justify-content: space-between; gap: 1rem; }
     .admin-bar.show { display: flex; }
     .admin-badge { background: var(--gold); color: var(--ink); font-weight: 700; font-size: .75rem; padding: .2rem .6rem; border-radius: 4px; }
     .logout-btn { background: none; border: 1px solid rgba(255,255,255,.3); color: white; font-size: .78rem; padding: .25rem .7rem; border-radius: 4px; cursor: pointer; font-family: inherit; }
     .logout-btn:hover { background: rgba(255,255,255,.1); }
 
-    /* ── HERO ── */
-    .hero {
-      background: linear-gradient(160deg, var(--ink) 0%, #16213e 60%, #0f3460 100%);
-      color: white; padding: 3rem 1.5rem 4rem; text-align: center; position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
+    /* HERO */
+    .hero { background: linear-gradient(160deg, var(--ink) 0%, #16213e 60%, #0f3460 100%); color: white; padding: 3rem 1.5rem 4rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
     .hero-badge { display: inline-block; background: var(--gold); color: var(--ink); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 2rem; margin-bottom: 1.2rem; }
     .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 7vw, 3.8rem); font-weight: 900; line-height: 1.1; margin-bottom: .5rem; }
     .hero h1 span { color: var(--gold-lt); }
@@ -48,23 +54,28 @@
     .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold-lt); display: block; }
     .stat-label { font-size: .78rem; opacity: .65; letter-spacing: .08em; text-transform: uppercase; }
 
-    /* ── PROGRESS ── */
+    /* PROGRESS */
     .progress-wrap { background: white; border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; }
     .progress-info { display: flex; justify-content: space-between; font-size: .82rem; color: #666; margin-bottom: .4rem; }
     .progress-bar { height: 8px; background: #e0d4c0; border-radius: 4px; overflow: hidden; }
     .progress-fill { height: 100%; background: linear-gradient(90deg, var(--green), var(--gold)); border-radius: 4px; transition: width .6s ease; }
 
-    /* ── TABS ── */
+    /* TABS */
     .tabs { background: white; border-bottom: 2px solid var(--border); display: flex; justify-content: center; padding: 0 1rem; }
     .tab { padding: .85rem 1.5rem; font-size: .88rem; font-weight: 600; color: #888; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all .2s; background: none; border-top: none; border-left: none; border-right: none; font-family: inherit; }
     .tab.active { color: var(--ink); border-bottom-color: var(--gold); }
     .tab:hover:not(.active) { color: var(--ink); }
 
-    /* ── PANELS ── */
+    /* PANELS */
     .panel { display: none; padding: 1.5rem; max-width: 860px; margin: 0 auto; }
     .panel.active { display: block; }
 
-    /* ── GRID ── */
+    /* LOADING */
+    .loading { text-align: center; padding: 3rem; color: #aaa; font-size: .9rem; }
+    .spinner { display: inline-block; width: 24px; height: 24px; border: 3px solid #e0d4c0; border-top-color: var(--gold); border-radius: 50%; animation: spin .7s linear infinite; margin-bottom: .5rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* GRID */
     .legend { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 1.2rem; font-size: .82rem; }
     .legend-item { display: flex; align-items: center; gap: .4rem; }
     .dot { width: 14px; height: 14px; border-radius: 3px; }
@@ -72,17 +83,13 @@
     .dot-sold { background: var(--sold); }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: 5px; }
-    .num-btn {
-      aspect-ratio: 1; border-radius: 6px; font-size: .82rem; font-weight: 600;
-      border: 2px solid var(--border); background: white; color: var(--ink);
-      font-family: inherit; transition: all .15s;
-    }
+    .num-btn { aspect-ratio: 1; border-radius: 6px; font-size: .82rem; font-weight: 600; border: 2px solid var(--border); background: white; color: var(--ink); font-family: inherit; transition: all .15s; }
     .num-btn.clickable { cursor: pointer; }
     .num-btn.clickable:hover { border-color: var(--gold); color: var(--gold); transform: scale(1.07); }
     .num-btn.sold { background: var(--sold); border-color: var(--sold); color: white; cursor: default; }
     .num-btn.view-only { cursor: default; }
 
-    /* ── TABLA COMPRADORES ── */
+    /* TABLA */
     .buyer-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
     .buyer-table th { text-align: left; padding: .6rem .8rem; background: var(--ink); color: white; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
     .buyer-table th:first-child { border-radius: 8px 0 0 0; }
@@ -96,7 +103,7 @@
     .empty-msg { text-align: center; padding: 3rem 1rem; color: #aaa; }
     .empty-msg .big { font-size: 2.5rem; display: block; margin-bottom: .5rem; }
 
-    /* ── SORTEO ── */
+    /* SORTEO */
     .raffle-card { background: var(--ink); color: white; border-radius: 16px; padding: 2.5rem; text-align: center; margin-bottom: 1.5rem; }
     .raffle-card h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: .5rem; }
     .raffle-drum { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900; color: var(--gold-lt); min-height: 100px; display: flex; align-items: center; justify-content: center; }
@@ -107,21 +114,12 @@
     .winner-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--ink); }
     .winner-num { font-size: 1.1rem; color: var(--gold); font-weight: 700; margin-top: .3rem; }
 
-    /* ── FOOTER ADMIN ── */
-    .footer-admin {
-      text-align: center; padding: 2rem 1rem 3rem;
-      border-top: 1px solid var(--border); margin-top: 2rem;
-    }
-    .footer-admin-btn {
-      background: none; border: 1px solid #ccc; color: #aaa;
-      font-size: .78rem; padding: .35rem .9rem; border-radius: 6px;
-      cursor: pointer; font-family: inherit; transition: all .2s;
-    }
+    /* FOOTER */
+    .footer-admin { text-align: center; padding: 2rem 1rem 3rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    .footer-admin-btn { background: none; border: 1px solid #ccc; color: #aaa; font-size: .78rem; padding: .35rem .9rem; border-radius: 6px; cursor: pointer; font-family: inherit; transition: all .2s; }
     .footer-admin-btn:hover { border-color: var(--gold); color: var(--gold); }
-    .footer-admin-btn.hidden-mode { display: none; }
-    .footer-admin-btn.admin-mode { display: none; }
 
-    /* ── MODAL LOGIN ── */
+    /* MODALES */
     .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
     .overlay.open { display: flex; }
     .modal { background: white; border-radius: 16px; padding: 2rem; max-width: 420px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.25); }
@@ -133,10 +131,11 @@
     input:focus { border-color: var(--gold); }
     .btn { width: 100%; padding: .8rem; background: var(--gold); color: var(--ink); font-weight: 700; font-size: 1rem; border: none; border-radius: 8px; cursor: pointer; font-family: inherit; transition: opacity .2s; }
     .btn:hover { opacity: .9; }
+    .btn:disabled { opacity: .5; cursor: not-allowed; }
     .btn-cancel { width: 100%; padding: .65rem; background: none; border: 2px solid var(--border); border-radius: 8px; color: #666; font-family: inherit; cursor: pointer; margin-top: .6rem; font-size: .92rem; }
     .login-err { color: var(--sold); font-size: .83rem; margin-top: .5rem; min-height: 1.2em; }
 
-    /* ── TOAST ── */
+    /* TOAST */
     .toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); background: var(--ink); color: white; padding: .75rem 1.5rem; border-radius: 8px; font-size: .9rem; z-index: 300; opacity: 0; transition: opacity .3s; pointer-events: none; white-space: nowrap; }
     .toast.show { opacity: 1; }
 
@@ -149,11 +148,17 @@
 </head>
 <body>
 
-<!-- ADMIN BAR (solo visible cuando hay sesión) -->
+<!-- SYNC BAR -->
+<div class="sync-bar">
+  <span class="sync-dot" id="sync-dot"></span>
+  <span id="sync-label">Conectando...</span>
+</div>
+
+<!-- ADMIN BAR -->
 <div class="admin-bar" id="admin-bar">
   <div style="display:flex;align-items:center;gap:.7rem">
     <span class="admin-badge">ADMIN</span>
-    <span style="opacity:.7;font-size:.82rem">Sesión activa — haz clic en un número para venderlo</span>
+    <span style="opacity:.7;font-size:.82rem">Sesión activa — haz clic en un número libre para venderlo</span>
   </div>
   <button class="logout-btn" onclick="doLogout()">🔒 Cerrar sesión</button>
 </div>
@@ -186,7 +191,7 @@
 <!-- PROGRESS -->
 <div class="progress-wrap">
   <div class="progress-info">
-    <span id="prog-label">0 de 400 números vendidos</span>
+    <span id="prog-label">Cargando...</span>
     <span id="prog-pct">0%</span>
   </div>
   <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
@@ -199,16 +204,21 @@
   <button class="tab" onclick="showTab('tirage',this)">🎰 Sorteo</button>
 </nav>
 
-<!-- PANEL: NÚMEROS -->
+<!-- PANEL NÚMEROS -->
 <div class="panel active" id="panel-numeros">
-  <div class="legend">
-    <div class="legend-item"><div class="dot dot-free"></div><span>Disponible</span></div>
-    <div class="legend-item"><div class="dot dot-sold"></div><span>Vendido</span></div>
+  <div class="loading" id="grid-loading">
+    <div class="spinner"></div><br>Cargando números...
   </div>
-  <div class="grid" id="grid"></div>
+  <div id="grid-wrap" style="display:none">
+    <div class="legend">
+      <div class="legend-item"><div class="dot dot-free"></div><span>Disponible</span></div>
+      <div class="legend-item"><div class="dot dot-sold"></div><span>Vendido</span></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
 </div>
 
-<!-- PANEL: COMPRADORES -->
+<!-- PANEL COMPRADORES -->
 <div class="panel" id="panel-compradores">
   <div class="empty-msg" id="empty-buyers">
     <span class="big">👥</span>
@@ -216,13 +226,13 @@
   </div>
   <table class="buyer-table" id="buyer-table" style="display:none">
     <thead>
-      <tr><th>#</th><th>Nombre</th><th>Ciudad</th><th>Números</th><th>Total</th><th id="del-col" style="display:none"></th></tr>
+      <tr><th>#</th><th>Nombre</th><th>Ciudad</th><th>Números</th><th>Total</th><th id="del-th"></th></tr>
     </thead>
     <tbody id="buyer-tbody"></tbody>
   </table>
 </div>
 
-<!-- PANEL: SORTEO -->
+<!-- PANEL SORTEO -->
 <div class="panel" id="panel-tirage">
   <div class="raffle-card">
     <h2>🎰 Sorteo</h2>
@@ -237,12 +247,12 @@
   </div>
 </div>
 
-<!-- FOOTER con botón Admin discreto -->
+<!-- FOOTER -->
 <div class="footer-admin">
   <button class="footer-admin-btn" id="admin-footer-btn" onclick="showLoginModal()">⚙️ Administrador</button>
 </div>
 
-<!-- MODAL LOGIN ADMIN -->
+<!-- MODAL LOGIN -->
 <div class="overlay" id="login-overlay" onclick="if(event.target===this)closeLoginModal()">
   <div class="modal">
     <h2>🔐 Acceso Admin</h2>
@@ -276,10 +286,10 @@
       <input type="text" id="f-city" placeholder="Ej. Quevedo, Guayaquil…" />
     </div>
     <div class="form-group">
-      <label>Teléfono / Email (opcional)</label>
+      <label>Teléfono / WhatsApp (opcional)</label>
       <input type="text" id="f-contact" placeholder="para confirmación" />
     </div>
-    <button class="btn" onclick="confirmPurchase()">✅ Confirmar venta — $5</button>
+    <button class="btn" id="confirm-btn" onclick="confirmPurchase()">✅ Confirmar venta — $5</button>
     <button class="btn-cancel" onclick="closeSellModal()">Cancelar</button>
   </div>
 </div>
@@ -287,7 +297,24 @@
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
+<!-- FIREBASE SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
 <script>
+  // ── FIREBASE CONFIG ────────────────────────────────────────
+  const firebaseConfig = {
+    apiKey: "AIzaSyC5MjUtZDg0Yi00OTVkLWE4ZjEtOTU1ZDBi",
+    authDomain: "rifa-cuenca.firebaseapp.com",
+    databaseURL: "https://rifa-cuenca-default-rtdb.firebaseio.com",
+    projectId: "rifa-cuenca",
+    storageBucket: "rifa-cuenca.firebasestorage.app",
+    messagingSenderId: "363729435570",
+    appId: "1:363729435570:web:e3d808b066b152859242ab",
+    measurementId: "G-EK3VEMKFW8"
+  };
+  // ──────────────────────────────────────────────────────────
+
   const ADMIN_USER = 'admin';
   const ADMIN_PASS = 'Cuenca2025';
   const TOTAL = 400;
@@ -295,10 +322,32 @@
   let isAdmin = false;
   let sales = {};
   let pendingNum = null;
+  let dbReady = false;
 
-  try { const s = localStorage.getItem('rifa-cuenca'); if (s) sales = JSON.parse(s); } catch(e){}
+  // Init Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+  const salesRef = db.ref('ventas');
 
-  function save() { try { localStorage.setItem('rifa-cuenca', JSON.stringify(sales)); } catch(e){} }
+  // Escuchar cambios en tiempo real
+  salesRef.on('value', (snapshot) => {
+    sales = snapshot.val() || {};
+    dbReady = true;
+    document.getElementById('grid-loading').style.display = 'none';
+    document.getElementById('grid-wrap').style.display = 'block';
+    buildGrid();
+    updateStats();
+    updateBuyers();
+  });
+
+  // Estado de conexión
+  db.ref('.info/connected').on('value', (snap) => {
+    const online = snap.val();
+    const dot = document.getElementById('sync-dot');
+    const label = document.getElementById('sync-label');
+    dot.className = 'sync-dot ' + (online ? 'online' : 'offline');
+    label.textContent = online ? '🟢 Sincronizado en tiempo real con todos los vendedores' : '🔴 Sin conexión — reconectando...';
+  });
 
   // ── LOGIN ──
   function showLoginModal() {
@@ -320,7 +369,7 @@
       document.getElementById('admin-footer-btn').style.display = 'none';
       buildGrid();
       updateBuyers();
-      showToast('✅ Bienvenido admin — haz clic en cualquier número libre para venderlo');
+      showToast('✅ Bienvenido admin — haz clic en un número libre para venderlo');
     } else {
       document.getElementById('login-err').textContent = '❌ Usuario o contraseña incorrectos';
       document.getElementById('l-pass').value = '';
@@ -373,8 +422,7 @@
     const entries = Object.entries(sales);
     const table = document.getElementById('buyer-table');
     const empty = document.getElementById('empty-buyers');
-    const delCol = document.getElementById('del-col');
-    delCol.style.display = isAdmin ? '' : 'none';
+    document.getElementById('del-th').textContent = isAdmin ? 'Anular' : '';
 
     if (!entries.length) { table.style.display='none'; empty.style.display='block'; return; }
     table.style.display = 'table';
@@ -393,9 +441,10 @@
     Object.entries(grouped).forEach(([key, g]) => {
       g.nums.sort((a,b)=>a-b);
       const tr = document.createElement('tr');
+      const safeKey = encodeURIComponent(key);
       const delCell = isAdmin
-        ? `<td><button class="del-btn" onclick="deleteSale('${key}')">🗑</button></td>`
-        : '';
+        ? `<td><button class="del-btn" onclick="deleteSale('${safeKey}')">🗑</button></td>`
+        : '<td></td>';
       tr.innerHTML = `
         <td>${row++}</td>
         <td><strong>${g.name}</strong>${g.contact ? `<br><small style="color:#999">${g.contact}</small>` : ''}</td>
@@ -408,23 +457,31 @@
     });
   }
 
-  function deleteSale(key) {
+  function deleteSale(safeKey) {
+    const key = decodeURIComponent(safeKey);
     const [name, city] = key.split('|');
     if (!confirm(`¿Anular ventas de ${name}?`)) return;
-    Object.keys(sales).forEach(n => { if (sales[n].name===name && sales[n].city===city) delete sales[n]; });
-    save(); buildGrid(); updateStats(); updateBuyers();
-    showToast(`🗑 Ventas de ${name} anuladas`);
+    const updates = {};
+    Object.keys(sales).forEach(n => {
+      if (sales[n].name === name && sales[n].city === city) updates[n] = null;
+    });
+    salesRef.update(updates).then(() => showToast(`🗑 Ventas de ${name} anuladas`));
   }
 
   // ── MODAL VENTA ──
   function openSellModal(num) {
+    if (!isAdmin) return;
     pendingNum = num;
     document.getElementById('modal-num').textContent = num;
     ['f-name','f-city','f-contact'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('confirm-btn').disabled = false;
     document.getElementById('sell-overlay').classList.add('open');
     setTimeout(() => document.getElementById('f-name').focus(), 100);
   }
-  function closeSellModal() { document.getElementById('sell-overlay').classList.remove('open'); pendingNum = null; }
+  function closeSellModal() {
+    document.getElementById('sell-overlay').classList.remove('open');
+    pendingNum = null;
+  }
 
   function confirmPurchase() {
     const name    = document.getElementById('f-name').value.trim();
@@ -432,10 +489,22 @@
     const contact = document.getElementById('f-contact').value.trim();
     if (!name) { showToast('⚠️ Ingresa el nombre'); return; }
     if (!city) { showToast('⚠️ Ingresa la ciudad'); return; }
-    if (sales[pendingNum]) { showToast('❌ Ya vendido'); closeSellModal(); return; }
-    sales[pendingNum] = { name, city, contact };
-    save(); closeSellModal(); buildGrid(); updateStats(); updateBuyers();
-    showToast(`✅ Número ${pendingNum} vendido a ${name}`);
+    if (sales[pendingNum]) { showToast('❌ Este número ya fue vendido'); closeSellModal(); return; }
+
+    const btn = document.getElementById('confirm-btn');
+    btn.disabled = true;
+    btn.textContent = 'Guardando...';
+
+    salesRef.child(pendingNum).set({ name, city, contact, ts: Date.now() })
+      .then(() => {
+        closeSellModal();
+        showToast(`✅ Número ${pendingNum} vendido a ${name}`);
+      })
+      .catch(err => {
+        btn.disabled = false;
+        btn.textContent = '✅ Confirmar venta — $5';
+        showToast('❌ Error al guardar: ' + err.message);
+      });
   }
 
   // ── SORTEO ──
@@ -472,9 +541,6 @@
     t.textContent = msg; t.classList.add('show');
     setTimeout(()=>t.classList.remove('show'), 3500);
   }
-
-  // ── INIT ──
-  buildGrid(); updateStats(); updateBuyers();
 </script>
 </body>
 </html>
