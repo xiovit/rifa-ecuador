@@ -165,12 +165,12 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">🏔️ Rifa Solidaria 2025</div>
+  <div class="hero-badge">🏔️ Rifa Solidaria 2026</div>
   <h1>Fin de Semana<br>en <span>Cuenca</span></h1>
-  <p class="hero-sub">Participa y gana una escapada mágica a la ciudad patrimonial del Ecuador. Cada número cuesta solo $5.</p>
+  <p class="hero-sub">Participa y gana una escapada mágica a la ciudad patrimonial del Ecuador. Cada número cuesta solo $10.</p>
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num">400</span>
+      <span class="stat-num">500</span>
       <span class="stat-label">Números totales</span>
     </div>
     <div class="stat">
@@ -178,12 +178,16 @@
       <span class="stat-label">Vendidos</span>
     </div>
     <div class="stat">
-      <span class="stat-num" id="stat-free">400</span>
+      <span class="stat-num" id="stat-free">500</span>
       <span class="stat-label">Disponibles</span>
     </div>
     <div class="stat">
-      <span class="stat-num">$5</span>
+      <span class="stat-num">$10</span>
       <span class="stat-label">Por número</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">$5.000</span>
+      <span class="stat-label">Meta de recaudación</span>
     </div>
   </div>
 </section>
@@ -276,7 +280,7 @@
 <div class="overlay" id="sell-overlay" onclick="if(event.target===this)closeSellModal()">
   <div class="modal">
     <h2>Número <span id="modal-num"></span></h2>
-    <p class="modal-sub">Registrar comprador — precio: <strong>$5</strong></p>
+    <p class="modal-sub">Registrar comprador — precio: <strong>$10</strong></p>
     <div class="form-group">
       <label>Nombre completo *</label>
       <input type="text" id="f-name" placeholder="Ej. María García" />
@@ -289,7 +293,7 @@
       <label>Teléfono / WhatsApp (opcional)</label>
       <input type="text" id="f-contact" placeholder="para confirmación" />
     </div>
-    <button class="btn" id="confirm-btn" onclick="confirmPurchase()">✅ Confirmar venta — $5</button>
+    <button class="btn" id="confirm-btn" onclick="confirmPurchase()">✅ Confirmar venta — $10</button>
     <button class="btn-cancel" onclick="closeSellModal()">Cancelar</button>
   </div>
 </div>
@@ -316,8 +320,8 @@
   // ──────────────────────────────────────────────────────────
 
   const ADMIN_USER = 'admin';
-  const ADMIN_PASS = 'Cuenca2025';
-  const TOTAL = 400;
+  const ADMIN_PASS = 'rifa2026';
+  const TOTAL = 500;
 
   let isAdmin = false;
   let sales = {};
@@ -450,7 +454,7 @@
         <td><strong>${g.name}</strong>${g.contact ? `<br><small style="color:#999">${g.contact}</small>` : ''}</td>
         <td>${g.city}</td>
         <td>${g.nums.map(n=>`<span class="tag tag-num">${n}</span>`).join(' ')}</td>
-        <td><strong>$${g.nums.length*5}</strong></td>
+        <td><strong>$${g.nums.length*10}</strong></td>
         ${delCell}
       `;
       tbody.appendChild(tr);
@@ -502,7 +506,7 @@
       })
       .catch(err => {
         btn.disabled = false;
-        btn.textContent = '✅ Confirmar venta — $5';
+        btn.textContent = '✅ Confirmar venta — $10';
         showToast('❌ Error al guardar: ' + err.message);
       });
   }
