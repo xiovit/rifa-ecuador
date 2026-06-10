@@ -20,91 +20,27 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
 
-    /* ── LOGIN SCREEN ── */
-    #login-screen {
-      display: none; position: fixed; inset: 0;
-      background: linear-gradient(160deg, var(--ink) 0%, #16213e 60%, #0f3460 100%);
-      z-index: 500; align-items: center; justify-content: center;
-    }
-    #login-screen.show { display: flex; }
-    .login-box {
-      background: white; border-radius: 20px;
-      padding: 2.5rem; width: 100%; max-width: 380px;
-      margin: 1rem; text-align: center;
-      box-shadow: 0 24px 60px rgba(0,0,0,.4);
-    }
-    .login-icon { font-size: 2.5rem; margin-bottom: .5rem; }
-    .login-box h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem; margin-bottom: .3rem;
-    }
-    .login-box p { color: #888; font-size: .88rem; margin-bottom: 1.8rem; }
-    .login-box input {
-      width: 100%; padding: .7rem 1rem;
-      border: 2px solid var(--border); border-radius: 8px;
-      font-size: .95rem; font-family: inherit;
-      margin-bottom: .8rem; outline: none;
-      transition: border-color .2s;
-    }
-    .login-box input:focus { border-color: var(--gold); }
-    .login-btn {
-      width: 100%; padding: .8rem;
-      background: var(--gold); color: var(--ink);
-      font-weight: 700; font-size: 1rem;
-      border: none; border-radius: 8px;
-      cursor: pointer; font-family: inherit;
-      transition: opacity .2s;
-    }
-    .login-btn:hover { opacity: .88; }
-    .login-err {
-      color: var(--sold); font-size: .83rem;
-      margin-top: .5rem; min-height: 1.2em;
-    }
-
     /* ── ADMIN BAR ── */
     .admin-bar {
-      display: none;
-      background: var(--ink); color: white;
-      padding: .5rem 1.2rem;
-      font-size: .82rem;
-      align-items: center; justify-content: space-between;
-      gap: 1rem;
+      display: none; background: var(--ink); color: white;
+      padding: .5rem 1.2rem; align-items: center; justify-content: space-between; gap: 1rem;
     }
     .admin-bar.show { display: flex; }
-    .admin-badge {
-      background: var(--gold); color: var(--ink);
-      font-weight: 700; font-size: .75rem;
-      padding: .2rem .6rem; border-radius: 4px;
-      letter-spacing: .05em;
-    }
-    .logout-btn {
-      background: none; border: 1px solid rgba(255,255,255,.3);
-      color: white; font-size: .78rem; padding: .25rem .7rem;
-      border-radius: 4px; cursor: pointer; font-family: inherit;
-    }
+    .admin-badge { background: var(--gold); color: var(--ink); font-weight: 700; font-size: .75rem; padding: .2rem .6rem; border-radius: 4px; }
+    .logout-btn { background: none; border: 1px solid rgba(255,255,255,.3); color: white; font-size: .78rem; padding: .25rem .7rem; border-radius: 4px; cursor: pointer; font-family: inherit; }
     .logout-btn:hover { background: rgba(255,255,255,.1); }
 
     /* ── HERO ── */
     .hero {
       background: linear-gradient(160deg, var(--ink) 0%, #16213e 60%, #0f3460 100%);
-      color: white; padding: 3rem 1.5rem 4rem; text-align: center;
-      position: relative; overflow: hidden;
+      color: white; padding: 3rem 1.5rem 4rem; text-align: center; position: relative; overflow: hidden;
     }
     .hero::before {
       content: ''; position: absolute; inset: 0;
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
-    .hero-badge {
-      display: inline-block; background: var(--gold); color: var(--ink);
-      font-size: .72rem; font-weight: 700; letter-spacing: .12em;
-      text-transform: uppercase; padding: .35rem .9rem;
-      border-radius: 2rem; margin-bottom: 1.2rem;
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 7vw, 3.8rem);
-      font-weight: 900; line-height: 1.1; margin-bottom: .5rem;
-    }
+    .hero-badge { display: inline-block; background: var(--gold); color: var(--ink); font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .35rem .9rem; border-radius: 2rem; margin-bottom: 1.2rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 7vw, 3.8rem); font-weight: 900; line-height: 1.1; margin-bottom: .5rem; }
     .hero h1 span { color: var(--gold-lt); }
     .hero-sub { font-size: 1.05rem; opacity: .8; margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; }
     .hero-stats { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
@@ -128,54 +64,23 @@
     .panel { display: none; padding: 1.5rem; max-width: 860px; margin: 0 auto; }
     .panel.active { display: block; }
 
-    /* ── LOCK NOTICE ── */
-    .lock-notice {
-      text-align: center; padding: 2.5rem 1rem;
-      background: #fff8ee; border: 2px dashed var(--gold);
-      border-radius: 12px; margin-bottom: 1.5rem;
-      display: none;
-    }
-    .lock-notice.show { display: block; }
-    .lock-notice .icon { font-size: 2rem; margin-bottom: .5rem; }
-    .lock-notice p { color: #666; font-size: .9rem; margin-bottom: 1rem; }
-    .lock-login-btn {
-      background: var(--gold); color: var(--ink);
-      font-weight: 700; padding: .6rem 1.5rem;
-      border: none; border-radius: 8px;
-      cursor: pointer; font-family: inherit; font-size: .9rem;
-    }
-
     /* ── GRID ── */
     .legend { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-bottom: 1.2rem; font-size: .82rem; }
     .legend-item { display: flex; align-items: center; gap: .4rem; }
     .dot { width: 14px; height: 14px; border-radius: 3px; }
     .dot-free { background: white; border: 2px solid var(--border); }
     .dot-sold { background: var(--sold); }
-    .dot-mine { background: var(--green); }
 
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); gap: 5px; }
     .num-btn {
       aspect-ratio: 1; border-radius: 6px; font-size: .82rem; font-weight: 600;
-      cursor: pointer; border: 2px solid var(--border); background: white;
-      color: var(--ink); transition: all .15s; font-family: inherit;
+      border: 2px solid var(--border); background: white; color: var(--ink);
+      font-family: inherit; transition: all .15s;
     }
-    .num-btn:hover:not(.sold):not(.locked) { border-color: var(--gold); color: var(--gold); transform: scale(1.07); }
+    .num-btn.clickable { cursor: pointer; }
+    .num-btn.clickable:hover { border-color: var(--gold); color: var(--gold); transform: scale(1.07); }
     .num-btn.sold { background: var(--sold); border-color: var(--sold); color: white; cursor: default; }
-    .num-btn.locked { cursor: default; opacity: .6; }
-
-    /* ── MODAL COMPRA ── */
-    .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
-    .overlay.open { display: flex; }
-    .modal { background: white; border-radius: 16px; padding: 2rem; max-width: 420px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.25); }
-    .modal h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: .3rem; }
-    .modal-sub { color: #777; font-size: .88rem; margin-bottom: 1.5rem; }
-    .form-group { margin-bottom: 1rem; }
-    label { display: block; font-size: .82rem; font-weight: 600; margin-bottom: .3rem; color: #444; }
-    input, select { width: 100%; padding: .65rem .9rem; border: 2px solid var(--border); border-radius: 8px; font-size: .95rem; font-family: inherit; transition: border-color .2s; outline: none; }
-    input:focus, select:focus { border-color: var(--gold); }
-    .btn { width: 100%; padding: .8rem; background: var(--gold); color: var(--ink); font-weight: 700; font-size: 1rem; border: none; border-radius: 8px; cursor: pointer; font-family: inherit; transition: opacity .2s, transform .1s; }
-    .btn:hover { opacity: .9; transform: translateY(-1px); }
-    .btn-cancel { width: 100%; padding: .65rem; background: none; border: 2px solid var(--border); border-radius: 8px; color: #666; font-family: inherit; cursor: pointer; margin-top: .6rem; font-size: .92rem; }
+    .num-btn.view-only { cursor: default; }
 
     /* ── TABLA COMPRADORES ── */
     .buyer-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
@@ -191,7 +96,7 @@
     .empty-msg { text-align: center; padding: 3rem 1rem; color: #aaa; }
     .empty-msg .big { font-size: 2.5rem; display: block; margin-bottom: .5rem; }
 
-    /* ── TIRAGE ── */
+    /* ── SORTEO ── */
     .raffle-card { background: var(--ink); color: white; border-radius: 16px; padding: 2.5rem; text-align: center; margin-bottom: 1.5rem; }
     .raffle-card h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: .5rem; }
     .raffle-drum { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900; color: var(--gold-lt); min-height: 100px; display: flex; align-items: center; justify-content: center; }
@@ -201,6 +106,35 @@
     .winner-reveal.show { display: block; }
     .winner-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--ink); }
     .winner-num { font-size: 1.1rem; color: var(--gold); font-weight: 700; margin-top: .3rem; }
+
+    /* ── FOOTER ADMIN ── */
+    .footer-admin {
+      text-align: center; padding: 2rem 1rem 3rem;
+      border-top: 1px solid var(--border); margin-top: 2rem;
+    }
+    .footer-admin-btn {
+      background: none; border: 1px solid #ccc; color: #aaa;
+      font-size: .78rem; padding: .35rem .9rem; border-radius: 6px;
+      cursor: pointer; font-family: inherit; transition: all .2s;
+    }
+    .footer-admin-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-admin-btn.hidden-mode { display: none; }
+    .footer-admin-btn.admin-mode { display: none; }
+
+    /* ── MODAL LOGIN ── */
+    .overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
+    .overlay.open { display: flex; }
+    .modal { background: white; border-radius: 16px; padding: 2rem; max-width: 420px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+    .modal h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: .3rem; }
+    .modal-sub { color: #777; font-size: .88rem; margin-bottom: 1.5rem; }
+    .form-group { margin-bottom: 1rem; }
+    label { display: block; font-size: .82rem; font-weight: 600; margin-bottom: .3rem; color: #444; }
+    input { width: 100%; padding: .65rem .9rem; border: 2px solid var(--border); border-radius: 8px; font-size: .95rem; font-family: inherit; transition: border-color .2s; outline: none; }
+    input:focus { border-color: var(--gold); }
+    .btn { width: 100%; padding: .8rem; background: var(--gold); color: var(--ink); font-weight: 700; font-size: 1rem; border: none; border-radius: 8px; cursor: pointer; font-family: inherit; transition: opacity .2s; }
+    .btn:hover { opacity: .9; }
+    .btn-cancel { width: 100%; padding: .65rem; background: none; border: 2px solid var(--border); border-radius: 8px; color: #666; font-family: inherit; cursor: pointer; margin-top: .6rem; font-size: .92rem; }
+    .login-err { color: var(--sold); font-size: .83rem; margin-top: .5rem; min-height: 1.2em; }
 
     /* ── TOAST ── */
     .toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); background: var(--ink); color: white; padding: .75rem 1.5rem; border-radius: 8px; font-size: .9rem; z-index: 300; opacity: 0; transition: opacity .3s; pointer-events: none; white-space: nowrap; }
@@ -215,28 +149,11 @@
 </head>
 <body>
 
-<!-- LOGIN SCREEN -->
-<div id="login-screen" class="show">
-  <div class="login-box">
-    <div class="login-icon">🔐</div>
-    <h2>Acceso Administrador</h2>
-    <p>Ingresa tus credenciales para gestionar la rifa</p>
-    <input type="text" id="l-user" placeholder="Usuario" autocomplete="username" />
-    <input type="password" id="l-pass" placeholder="Contraseña" autocomplete="current-password"
-           onkeydown="if(event.key==='Enter')doLogin()" />
-    <button class="login-btn" onclick="doLogin()">Entrar</button>
-    <div class="login-err" id="login-err"></div>
-    <p style="margin-top:1.2rem;font-size:.78rem;color:#bbb">
-      ¿Solo quieres ver la rifa? <a href="#" onclick="viewOnly()" style="color:var(--gold)">Modo público</a>
-    </p>
-  </div>
-</div>
-
-<!-- ADMIN BAR -->
+<!-- ADMIN BAR (solo visible cuando hay sesión) -->
 <div class="admin-bar" id="admin-bar">
   <div style="display:flex;align-items:center;gap:.7rem">
     <span class="admin-badge">ADMIN</span>
-    <span style="opacity:.7;font-size:.82rem">Sesión activa — puedes vender números</span>
+    <span style="opacity:.7;font-size:.82rem">Sesión activa — haz clic en un número para venderlo</span>
   </div>
   <button class="logout-btn" onclick="doLogout()">🔒 Cerrar sesión</button>
 </div>
@@ -248,7 +165,7 @@
   <p class="hero-sub">Participa y gana una escapada mágica a la ciudad patrimonial del Ecuador. Cada número cuesta solo $5.</p>
   <div class="hero-stats">
     <div class="stat">
-      <span class="stat-num" id="stat-total">400</span>
+      <span class="stat-num">400</span>
       <span class="stat-label">Números totales</span>
     </div>
     <div class="stat">
@@ -256,12 +173,12 @@
       <span class="stat-label">Vendidos</span>
     </div>
     <div class="stat">
-      <span class="stat-num">$5</span>
-      <span class="stat-label">Por número</span>
+      <span class="stat-num" id="stat-free">400</span>
+      <span class="stat-label">Disponibles</span>
     </div>
     <div class="stat">
-      <span class="stat-num">$2.000</span>
-      <span class="stat-label">Meta de recaudación</span>
+      <span class="stat-num">$5</span>
+      <span class="stat-label">Por número</span>
     </div>
   </div>
 </section>
@@ -284,12 +201,6 @@
 
 <!-- PANEL: NÚMEROS -->
 <div class="panel active" id="panel-numeros">
-  <!-- aviso si no es admin -->
-  <div class="lock-notice" id="lock-notice">
-    <div class="icon">🔒</div>
-    <p>Para vender números necesitas iniciar sesión como administrador.</p>
-    <button class="lock-login-btn" onclick="showLogin()">Iniciar sesión</button>
-  </div>
   <div class="legend">
     <div class="legend-item"><div class="dot dot-free"></div><span>Disponible</span></div>
     <div class="legend-item"><div class="dot dot-sold"></div><span>Vendido</span></div>
@@ -305,9 +216,7 @@
   </div>
   <table class="buyer-table" id="buyer-table" style="display:none">
     <thead>
-      <tr>
-        <th>#</th><th>Nombre</th><th>Ciudad</th><th>Números</th><th>Total</th><th></th>
-      </tr>
+      <tr><th>#</th><th>Nombre</th><th>Ciudad</th><th>Números</th><th>Total</th><th id="del-col" style="display:none"></th></tr>
     </thead>
     <tbody id="buyer-tbody"></tbody>
   </table>
@@ -328,11 +237,36 @@
   </div>
 </div>
 
-<!-- MODAL COMPRA -->
-<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+<!-- FOOTER con botón Admin discreto -->
+<div class="footer-admin">
+  <button class="footer-admin-btn" id="admin-footer-btn" onclick="showLoginModal()">⚙️ Administrador</button>
+</div>
+
+<!-- MODAL LOGIN ADMIN -->
+<div class="overlay" id="login-overlay" onclick="if(event.target===this)closeLoginModal()">
+  <div class="modal">
+    <h2>🔐 Acceso Admin</h2>
+    <p class="modal-sub">Ingresa tus credenciales para vender números</p>
+    <div class="form-group">
+      <label>Usuario</label>
+      <input type="text" id="l-user" placeholder="usuario" autocomplete="username" />
+    </div>
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input type="password" id="l-pass" placeholder="contraseña" autocomplete="current-password"
+             onkeydown="if(event.key==='Enter')doLogin()" />
+    </div>
+    <button class="btn" onclick="doLogin()">Entrar</button>
+    <button class="btn-cancel" onclick="closeLoginModal()">Cancelar</button>
+    <div class="login-err" id="login-err"></div>
+  </div>
+</div>
+
+<!-- MODAL VENTA -->
+<div class="overlay" id="sell-overlay" onclick="if(event.target===this)closeSellModal()">
   <div class="modal">
     <h2>Número <span id="modal-num"></span></h2>
-    <p class="modal-sub">Registra al comprador — precio: <strong>$5</strong></p>
+    <p class="modal-sub">Registrar comprador — precio: <strong>$5</strong></p>
     <div class="form-group">
       <label>Nombre completo *</label>
       <input type="text" id="f-name" placeholder="Ej. María García" />
@@ -346,7 +280,7 @@
       <input type="text" id="f-contact" placeholder="para confirmación" />
     </div>
     <button class="btn" onclick="confirmPurchase()">✅ Confirmar venta — $5</button>
-    <button class="btn-cancel" onclick="closeModal()">Cancelar</button>
+    <button class="btn-cancel" onclick="closeSellModal()">Cancelar</button>
   </div>
 </div>
 
@@ -354,34 +288,39 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  // ── CREDENCIALES ──────────────────────────────────────────
   const ADMIN_USER = 'admin';
   const ADMIN_PASS = 'Cuenca2025';
-  // ─────────────────────────────────────────────────────────
-
   const TOTAL = 400;
+
   let isAdmin = false;
-  let sales   = {};
+  let sales = {};
   let pendingNum = null;
 
-  // Cargar datos guardados
   try { const s = localStorage.getItem('rifa-cuenca'); if (s) sales = JSON.parse(s); } catch(e){}
 
-  function save() {
-    try { localStorage.setItem('rifa-cuenca', JSON.stringify(sales)); } catch(e){}
-  }
+  function save() { try { localStorage.setItem('rifa-cuenca', JSON.stringify(sales)); } catch(e){} }
 
-  // ── LOGIN / LOGOUT ──
+  // ── LOGIN ──
+  function showLoginModal() {
+    document.getElementById('l-user').value = '';
+    document.getElementById('l-pass').value = '';
+    document.getElementById('login-err').textContent = '';
+    document.getElementById('login-overlay').classList.add('open');
+    setTimeout(() => document.getElementById('l-user').focus(), 100);
+  }
+  function closeLoginModal() { document.getElementById('login-overlay').classList.remove('open'); }
+
   function doLogin() {
     const u = document.getElementById('l-user').value.trim();
     const p = document.getElementById('l-pass').value;
     if (u === ADMIN_USER && p === ADMIN_PASS) {
       isAdmin = true;
-      document.getElementById('login-screen').classList.remove('show');
+      closeLoginModal();
       document.getElementById('admin-bar').classList.add('show');
-      document.getElementById('lock-notice').classList.remove('show');
+      document.getElementById('admin-footer-btn').style.display = 'none';
       buildGrid();
-      showToast('✅ Sesión iniciada — bienvenido admin');
+      updateBuyers();
+      showToast('✅ Bienvenido admin — haz clic en cualquier número libre para venderlo');
     } else {
       document.getElementById('login-err').textContent = '❌ Usuario o contraseña incorrectos';
       document.getElementById('l-pass').value = '';
@@ -392,20 +331,10 @@
   function doLogout() {
     isAdmin = false;
     document.getElementById('admin-bar').classList.remove('show');
-    document.getElementById('lock-notice').classList.add('show');
+    document.getElementById('admin-footer-btn').style.display = '';
     buildGrid();
+    updateBuyers();
     showToast('🔒 Sesión cerrada');
-  }
-
-  function viewOnly() {
-    document.getElementById('login-screen').classList.remove('show');
-    document.getElementById('lock-notice').classList.add('show');
-    buildGrid();
-  }
-
-  function showLogin() {
-    document.getElementById('login-screen').classList.add('show');
-    setTimeout(() => document.getElementById('l-user').focus(), 100);
   }
 
   // ── GRID ──
@@ -418,11 +347,10 @@
         btn.className = 'num-btn sold';
         btn.title = sales[i].name + ' — ' + sales[i].city;
       } else if (isAdmin) {
-        btn.className = 'num-btn';
-        btn.onclick = () => openModal(i);
+        btn.className = 'num-btn clickable';
+        btn.onclick = () => openSellModal(i);
       } else {
-        btn.className = 'num-btn locked';
-        btn.title = 'Inicia sesión para vender';
+        btn.className = 'num-btn view-only';
       }
       btn.textContent = i;
       grid.appendChild(btn);
@@ -433,6 +361,7 @@
   function updateStats() {
     const n = Object.keys(sales).length;
     document.getElementById('stat-sold').textContent = n;
+    document.getElementById('stat-free').textContent = TOTAL - n;
     const pct = Math.round(n / TOTAL * 100);
     document.getElementById('prog-label').textContent = `${n} de ${TOTAL} números vendidos`;
     document.getElementById('prog-pct').textContent = pct + '%';
@@ -442,17 +371,19 @@
   // ── COMPRADORES ──
   function updateBuyers() {
     const entries = Object.entries(sales);
-    const table   = document.getElementById('buyer-table');
-    const empty   = document.getElementById('empty-buyers');
+    const table = document.getElementById('buyer-table');
+    const empty = document.getElementById('empty-buyers');
+    const delCol = document.getElementById('del-col');
+    delCol.style.display = isAdmin ? '' : 'none';
+
     if (!entries.length) { table.style.display='none'; empty.style.display='block'; return; }
     table.style.display = 'table';
     empty.style.display = 'none';
 
-    // Agrupar por nombre+ciudad
     const grouped = {};
     entries.forEach(([num, d]) => {
       const k = d.name + '|' + d.city;
-      if (!grouped[k]) grouped[k] = { name: d.name, city: d.city, contact: d.contact, nums: [] };
+      if (!grouped[k]) grouped[k] = { name: d.name, city: d.city, contact: d.contact||'', nums: [] };
       grouped[k].nums.push(Number(num));
     });
 
@@ -463,11 +394,11 @@
       g.nums.sort((a,b)=>a-b);
       const tr = document.createElement('tr');
       const delCell = isAdmin
-        ? `<td><button class="del-btn" onclick="deleteSale('${key}')">🗑 Anular</button></td>`
-        : `<td></td>`;
+        ? `<td><button class="del-btn" onclick="deleteSale('${key}')">🗑</button></td>`
+        : '';
       tr.innerHTML = `
         <td>${row++}</td>
-        <td><strong>${g.name}</strong><br><small style="color:#999">${g.contact||''}</small></td>
+        <td><strong>${g.name}</strong>${g.contact ? `<br><small style="color:#999">${g.contact}</small>` : ''}</td>
         <td>${g.city}</td>
         <td>${g.nums.map(n=>`<span class="tag tag-num">${n}</span>`).join(' ')}</td>
         <td><strong>$${g.nums.length*5}</strong></td>
@@ -478,40 +409,32 @@
   }
 
   function deleteSale(key) {
-    if (!isAdmin) return;
     const [name, city] = key.split('|');
-    if (!confirm(`¿Anular todas las ventas de ${name} (${city})?`)) return;
-    Object.keys(sales).forEach(num => {
-      if (sales[num].name === name && sales[num].city === city) delete sales[num];
-    });
+    if (!confirm(`¿Anular ventas de ${name}?`)) return;
+    Object.keys(sales).forEach(n => { if (sales[n].name===name && sales[n].city===city) delete sales[n]; });
     save(); buildGrid(); updateStats(); updateBuyers();
     showToast(`🗑 Ventas de ${name} anuladas`);
   }
 
-  // ── MODAL ──
-  function openModal(num) {
-    if (!isAdmin) return;
+  // ── MODAL VENTA ──
+  function openSellModal(num) {
     pendingNum = num;
     document.getElementById('modal-num').textContent = num;
-    document.getElementById('f-name').value = '';
-    document.getElementById('f-city').value = '';
-    document.getElementById('f-contact').value = '';
-    document.getElementById('overlay').classList.add('open');
+    ['f-name','f-city','f-contact'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('sell-overlay').classList.add('open');
     setTimeout(() => document.getElementById('f-name').focus(), 100);
   }
-  function closeModal() {
-    document.getElementById('overlay').classList.remove('open');
-    pendingNum = null;
-  }
+  function closeSellModal() { document.getElementById('sell-overlay').classList.remove('open'); pendingNum = null; }
+
   function confirmPurchase() {
     const name    = document.getElementById('f-name').value.trim();
     const city    = document.getElementById('f-city').value.trim();
     const contact = document.getElementById('f-contact').value.trim();
     if (!name) { showToast('⚠️ Ingresa el nombre'); return; }
     if (!city) { showToast('⚠️ Ingresa la ciudad'); return; }
-    if (sales[pendingNum]) { showToast('❌ Ya vendido'); closeModal(); return; }
+    if (sales[pendingNum]) { showToast('❌ Ya vendido'); closeSellModal(); return; }
     sales[pendingNum] = { name, city, contact };
-    save(); closeModal(); buildGrid(); updateStats(); updateBuyers();
+    save(); closeSellModal(); buildGrid(); updateStats(); updateBuyers();
     showToast(`✅ Número ${pendingNum} vendido a ${name}`);
   }
 
@@ -547,7 +470,7 @@
   function showToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg; t.classList.add('show');
-    setTimeout(()=>t.classList.remove('show'), 3000);
+    setTimeout(()=>t.classList.remove('show'), 3500);
   }
 
   // ── INIT ──
@@ -555,4 +478,3 @@
 </script>
 </body>
 </html>
-
